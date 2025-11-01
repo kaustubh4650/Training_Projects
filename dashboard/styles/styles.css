@@ -1,0 +1,408 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #f5f6fa;
+  color: #333;
+}
+
+/* ============ NAVBAR ============ */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 15px 25px;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-left,
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.nav-icon{
+  width: 35px;
+  height: 35px;
+  background: #ddd;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 1.4rem;
+}
+
+.logo {
+  color: #4a4af4;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* Hide hamburger by default */
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  color: #4a4af4;
+  cursor: pointer;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+/* Dropdown hidden initially */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 15px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 220px;
+  padding: 15px;
+}
+
+.mobile-menu input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.mobile-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mobile-profile img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+/* Toggle mobile dropdown */
+#menu-toggle:checked ~ .mobile-menu {
+  display: block;
+}
+
+/* Default navbar layout */
+.nav-center input {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-right img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+/* ============ DASHBOARD ============ */
+.dashboard {
+  display: flex;
+  min-height: calc(100vh - 60px);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: #fff;
+  padding: 20px 10px;
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.3s ease;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: gray;
+}
+
+.menu li i {
+  font-size: 1.1rem;
+  min-width: 25px;
+  text-align: center;
+}
+
+.menu li.active {
+  background: #4a4af4;
+  color: white;
+}
+
+
+.menu li.active i {
+  color: white;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 15px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Cards */
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  flex: 1;
+  min-width: 220px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+/* Top section with icon and menu */
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Rounded icon background */
+.icon-box {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, #4a4af4, #7d7dff);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.4rem;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-body .title {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.value {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #000;
+  margin-top: 6px;
+}
+
+/* Ellipsis icon */
+.more-icon {
+  color: #bfbfbf;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* Main text */
+
+/* Trend box */
+.trend-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 4px 8px;
+  margin-top: 8px;
+  background: #f0f3ff;
+  /* color: #4a4af4; */
+}
+
+.trend-box.up i {
+  color: #4a4af4;
+}
+
+.trend-box.down {
+  background: #ffe9e9;
+  color: #e74c3c;
+}
+
+.trend-box.down i {
+  color: #e74c3c;
+}
+
+
+
+
+/* Panels */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.panel {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.panel.large {
+  grid-column: span 2;
+}
+
+.panel img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+  height: 200px;
+}
+
+.grid2{
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); */
+    grid-template-columns: auto auto;
+    gap: 20px;
+}
+
+
+
+/* ======= FIX RESPONSIVENESS ======= */
+@media (max-width: 992px) {
+  .nav-center input {
+    width: 200px;
+  }
+
+  .grid2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .nav-center,
+  .nav-right {
+    display: none;
+  }
+
+  .hamburger {
+    display: block; /* ✅ Fix: make hamburger visible on mobile */
+  }
+
+  .sidebar {
+    width: 70px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+
+  .sidebar.expanded {
+    width: 250px;
+    position: fixed;
+    left: 0;
+    top: 60px;
+    z-index: 2000;
+    box-shadow: 3px 0 15px rgba(0, 0, 0, 0.25);
+  }
+
+  .sidebar .menu li span {
+    display: none;
+  }
+
+  .sidebar.expanded .menu li span {
+    display: inline;
+  }
+
+  .sidebar .menu li {
+    justify-content: center;
+  }
+
+  .sidebar.expanded .menu li {
+    justify-content: flex-start;
+    padding-left: 20px;
+  }
+
+  /* ✅ Fix horizontal scroll */
+  .main-content {
+    padding: 15px;
+    overflow-x: hidden;
+  }
+
+  /* ✅ Make grids 1-column on mobile */
+  .cards {
+    flex-direction: column;
+  }
+
+  .grid,
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+
+  /* ✅ Ensure images shrink within panels */
+  .panel img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.1rem;
+  }
+}

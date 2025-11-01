@@ -1,0 +1,53 @@
+@if(event){
+<h1>{{title + event.eventName}}</h1>
+<!-- <h4>{{subTitle}}</h4> -->
+
+<table class="table table-hover table-striped">
+    <tbody>
+        <tr>
+            <th>Event Id</th>
+            <td><span>{{event.eventId}}</span></td>
+        </tr>
+        <tr>
+            <th>Event Code</th>
+            <td><span>{{event.eventCode}}</span></td>
+        </tr>
+        <tr>
+            <th>Event Name</th>
+            <td><span>{{event.eventName | uppercase}}</span></td>
+        </tr>
+        <tr>
+            <th>Event Description</th>
+            <td><span>{{event.description | titlecase}}</span></td>
+        </tr>
+        <tr>
+            <th>Event StartDate</th>
+            <td><span>{{event.startDate | date:'dd-MM-yyyy'}}</span></td>
+        </tr>
+        <tr>
+            <th>Event EndDate</th>
+            <td><span>{{event.endDate| date:'dd-MM-yyyy'}}</span></td>
+        </tr>
+        <tr>
+            <th>Event Fees</th>
+            <td><span>{{event.fees|currency:'EUR'}}</span></td>
+        </tr>
+        <tr>
+            <th>Event Total Registration</th>
+            <td><span>{{event.seatsFilled}}</span></td>
+        </tr>
+        <tr>
+            <th>Event Logo</th>
+            <td><img [src]="event.logo" [alt]="event.eventName"></td>
+        </tr>
+    </tbody>
+</table>
+
+<hr>
+
+<!-- <button class="btn btn-success" (click)="onEventProcess()">Send Message To Parent</button> -->
+
+}@else {
+<h4>We did not find event which you are looking for !</h4>
+
+}

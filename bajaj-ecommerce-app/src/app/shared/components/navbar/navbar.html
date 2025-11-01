@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+    <div class="container-fluid">
+        <!-- Brand / Logo -->
+        <a class="navbar-brand fw-bold fs-4 text-uppercase" [routerLink]="['/']" routerLinkActive="active">
+            <i class="bi bi-bag-check-fill me-2"></i>Bajaj
+        </a>
+
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
+            aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" [routerLink]="['/home']" routerLinkActive="active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/products']" routerLinkActive="active">Products</a>
+                </li>
+
+                @if(isAdmin){
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/admin/add-product']" routerLinkActive="active">Add Product</a>
+                </li>
+                }
+
+
+                @if(isLoggedIn){
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/auth/login']" routerLinkActive="active"
+                        (click)="logout()">Logout</a>
+                </li>
+                }
+                @else{
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/auth/login']" routerLinkActive="active">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/auth/register']" routerLinkActive="active">Regsiter</a>
+                </li>
+                }
+
+            </ul>
+
+            <!-- Search + Icons -->
+            <form class="d-flex align-items-center">
+                <input class="form-control me-2 bg-gradient" type="search" placeholder="Search products"
+                    aria-label="Search" [(ngModel)]="searchQuery" name="searchQuery" (input)="onSearch($event)">
+
+                <a [routerLink]="['/cart']" class="text-white me-3 fs-5 position-relative">
+                    <i class="bi bi-cart3"></i>
+                    <span *ngIf="cartCount > 0"
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        {{ cartCount }}
+                    </span>
+                </a>
+
+            </form>
+        </div>
+    </div>
+</nav>

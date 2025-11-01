@@ -1,0 +1,48 @@
+@if(product){
+<div class="product-details">
+    <div class="image-gallery">
+        <img class="main-image" [src]="product.images[0]" alt="{{ product.name }}" />
+        <div class="thumbnails">
+            <img *ngFor="let img of product.images" [src]="img" (click)="product.images[0] = img" />
+        </div>
+    </div>
+
+    <div class="info">
+        <h2>{{ product.name }}</h2>
+        <p class="brand">{{ product.brand }}</p>
+        <p class="category">{{ product.categoryId.name }}</p>
+
+        <div class="price-section">
+            <span class="current-price">
+                <i class="bi bi-currency-rupee"></i>{{ product.price - (product.price * product.discount) / 100 | number
+                : '1.2-2' }}
+            </span>
+            @if(product.discount){
+            <span class="old-price">
+                <i class="bi bi-currency-rupee"></i>{{ product.price | number : '1.2-2' }}
+            </span>
+            <span class="discount">(-{{ product.discount }}%)</span>
+            }
+        </div>
+
+        <div class="rating">
+            <span>
+                @for(star of [].constructor(5);track i;let i=$index){
+                <i class="fa" [ngClass]="i < product.rating ? 'fa-star checked' : 'fa-star'"></i>
+                }
+            </span>
+            <span class="reviews">({{ product.numReviews }} reviews)</span>
+        </div>
+
+        <p class="description">{{ product.description }}</p>
+
+        <div class="attributes">
+            <p><strong>Color:</strong> {{ product.attributes.color }}</p>
+            <p><strong>Material:</strong> {{ product.attributes.material }}</p>
+            <p><strong>Warranty:</strong> {{ product.attributes.warranty }}</p>
+        </div>
+
+        <button class="btn-add" (click)="addToCart()">Add to Cart</button>
+    </div>
+</div>
+}

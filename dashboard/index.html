@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="nav-left">
+            <h2 class="logo"><i class="fa-solid fa-compass-drafting"></i>&nbsp;<span style="color: black;">
+                    CREATHINK
+                </span></h2>
+            <div class="nav-center">
+                <input type="text" placeholder="Search..." />
+            </div>
+        </div>
+
+        <!-- Hamburger for mobile -->
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+
+
+
+        <div class="nav-right">
+            <div class="nav-icon">
+                <i class="fa-regular fa-bell"></i>
+            </div>
+            <div class="nav-icon">
+                <i class="fa-regular fa-plus"></i>
+            </div>
+            <img src="https://i.pravatar.cc/40" alt="user" />
+            <span>Firman Utina</span>
+        </div>
+
+        <!-- Dropdown for mobile -->
+        <div class="mobile-menu">
+            <div class="mobile-search">
+                <input type="text" placeholder="Search..." />
+            </div>
+            <div class="mobile-profile">
+                <img src="https://i.pravatar.cc/40" alt="user" />
+                <span>Firman Utina</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Area -->
+    <div class="dashboard">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <ul class="menu">
+                <li class="active"> <i class="fa-solid fa-bars"></i>
+                    <span>Dashboard</span>
+                </li>
+                <li class="main-list"><span>My Homepage</span></li>
+                <li class="main-list"><span>To-do List Projects</span></li>
+                <li class="main-list"><span>Sales Analytics</span></li>
+                <li class="main-list"><span>Call Center Date</span></li>
+                <li class="main-list"><span>Product Requirement</span></li>
+                <li><i class="fa-regular fa-user"></i><span>Accounts</span></li>
+                <li><i class="fa-solid fa-user-group"></i> <span>Contacts</span></li>
+                <li><i class="fa-solid fa-people-group"></i> <span>Team Design</span></li>
+                <li><i class="fa-regular fa-envelope"></i>
+                    <span>Mails</span>
+                </li>
+                <li><i class="fa-regular fa-calendar"></i> <span>Calendar</span>
+                </li>
+                <li><i class="fa-solid fa-briefcase"></i> <span>Cases</span></li>
+                <li><i class="fa-solid fa-chart-line"></i></i> <span>Activities</span>
+                <li><i class="fa-regular fa-file"></i> <span>Document</span></li>
+                <li><i class="fa-regular fa-circle-question"></i><span>Support</span></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Stats Cards -->
+            <section class="cards">
+                <div class="card">
+                    <div class="card-top">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                        <i class="fa-solid fa-ellipsis-vertical more-icon"></i>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="card-header">
+                            <p class="title">Total Customers</p>
+                            <div class="trend-box up">
+                                <i class="fa-solid fa-arrow-trend-up"></i> 17%
+                            </div>
+                        </div>
+                        <h2 class="value">10,500</h2>
+                    </div>
+                </div>
+                <div class="card" style="background: #4a4af4; color: white;">
+                    <div class="card-top">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <i class="fa-solid fa-ellipsis-vertical more-icon"></i>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="card-header">
+                            <p class="title" style="color: white;">Team Design</p>
+                            <div class="trend-box up" style="background-color: #4a4af4;">
+                                <i class="fa-solid fa-arrow-trend-up" style="color: white; background: #4a4af4;"></i>
+                                20%
+                            </div>
+                        </div>
+                        <h2 class="value" style="color: white;">25</h2>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-top">
+                        <div class="icon-box" style="background: orangered;">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </div>
+                        <i class="fa-solid fa-ellipsis-vertical more-icon"></i>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="card-header">
+                            <p class="title">Total Order</p>
+                            <div class="trend-box down">
+                                <i class="fa-solid fa-arrow-trend-down"></i> 17%
+                            </div>
+                        </div>
+                        <h2 class="value">1,300</h2>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-top">
+                        <div class="icon-box" style="background: lightskyblue">
+                            <i class="fa-solid fa-coins"></i>
+                        </div>
+                        <i class="fa-solid fa-ellipsis-vertical more-icon"></i>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="card-header">
+                            <p class="title">Total Customers</p>
+                            <div class="trend-box up">
+                                <i class="fa-solid fa-arrow-trend-up"></i> 35%
+                            </div>
+                        </div>
+                        <h2 class="value">100,58$</h2>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Dashboard Panels -->
+            <section class="grid">
+                <div class="panel large">
+                    <h3>Monthly Income</h3>
+                    <img src="images/img1.webp" alt="Graph demo" />
+                </div>
+
+                <div class="panel">
+                    <h3>Design Activity</h3>
+                    <img src="images/img2.png" alt="Chart demo" />
+                </div>
+            </section>
+
+            <section class="grid2">
+                <div class="panel">
+                    <h3>Customers Order</h3>
+                    <img src="images/img3.png" alt="Bar chart demo" />
+                </div>
+
+                <div class="panel">
+                    <h3>Total Earning from Design</h3>
+                    <img src="images/img4.png" alt="Graph demo" />
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        const sidebar = document.querySelector(".sidebar");
+        const toggleIcon = document.querySelector(".menu li.active");
+
+        toggleIcon.addEventListener("click", () => {
+            sidebar.classList.toggle("expanded");
+        });
+    </script>
+
+
+
+</body>
+
+</html>

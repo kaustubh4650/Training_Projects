@@ -1,0 +1,68 @@
+@if(employees && employees.length > 0){
+
+<h1>{{title}}</h1>
+<hr>
+<h6>{{subTitle}}</h6>
+
+@if(childMsg){
+<p>{{childMsg}}</p>
+}
+
+<div class="row g-3 ">
+    <div class="col-6">
+        <input type="search" id="inputSearch" class="form-control" aria-describedby="searchHelpInline"
+            placeholder="Search Employee By Employee Name!" [(ngModel)]="searchChars" (input)="searchEvents()">
+    </div>
+</div>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            @for (col of columns;track $index) {
+            <th>{{col}}</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @for (employee of filteredEmployees|paginate:{itemsPerPage:pageSizeEmp,currentPage:pageNumberEmp}; track $index)
+        {
+        <tr>
+            <td>{{employee.employeeId}}</td>
+            <td>{{employee.employeeName}}</td>
+            <td>{{employee.address}}</td>
+            <td>{{employee.city}}</td>
+            <td>{{employee.zipcode}}</td>
+            <td>{{employee.phone}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.skillSets}}</td>
+            <td>{{employee.country}}</td>
+            <td>{{employee.joiningDate}}</td>
+            <td>{{employee.avatar}}</td>
+            <!-- <td><button class="btn btn-dark" (click)="onEmployeeSelection(employee.employeeId)">Show Details</button>
+            </td> -->
+            <td><a class="btn btn-dark" [routerLink]="['/employees',employee.employeeId]">Show Details</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<div class="container text-center">
+    <pagination-controls class="my-pagination" (pageChange)="pageNumberEmp=$event"></pagination-controls>
+</div>
+
+<!-- @if (selectedEmployeeId>0) {
+
+@defer(){
+<app-employee-details [empId]="selectedEmployeeId" subTitle="hello world"
+    (sendConfirmMsg)="handleChildMsg($event)"></app-employee-details>
+}@placeholder(minimum 3000ms) {
+<h4>Please Wait!!!</h4>
+}@error {
+<h4>Something went wrong !</h4>
+}
+} -->
+}
+@else {
+<h4>Sorry! we did not find any event! Please try after sometime !</h4>
+}

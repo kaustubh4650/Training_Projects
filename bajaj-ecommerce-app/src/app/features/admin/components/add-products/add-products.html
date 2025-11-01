@@ -1,0 +1,83 @@
+<div class="container mt-5 mb-5">
+    <div class="card shadow-lg border-0 rounded-4 p-4">
+        <h3 class="text-center mb-4 fw-bold text-primary">
+            <i class="fa-solid fa-box"></i> Add New Product
+        </h3>
+
+        <form>
+            <div class="row g-4">
+                <!-- Product Name -->
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">Product Name</label>
+                    <input type="text" class="form-control rounded-pill" placeholder="Enter product name" />
+                </div>
+
+                <!-- Category -->
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">Category</label>
+                    <select class="form-select rounded-pill">
+                        <option selected disabled>Select category</option>
+                        <option>Electronics</option>
+                        <option>Fashion</option>
+                        <option>Home & Kitchen</option>
+                        <option>Sports</option>
+                        <option>Beauty & Health</option>
+                        <option>Toys & Baby</option>
+                        <option>Groceries</option>
+                        <option>Automotive</option>
+                        <option>Jewellery</option>
+                    </select>
+                </div>
+
+                <!-- Price -->
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Price (₹)</label>
+                    <input type="number" class="form-control rounded-pill" placeholder="Enter price" />
+                </div>
+
+                <!-- Stock Quantity -->
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Stock Quantity</label>
+                    <input type="number" class="form-control rounded-pill" placeholder="Enter stock quantity" />
+                </div>
+
+                <!-- Brand -->
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold">Brand</label>
+                    <input type="text" class="form-control rounded-pill" placeholder="Enter brand name" />
+                </div>
+
+                <!-- Description -->
+                <div class="col-12">
+                    <label class="form-label fw-semibold">Description</label>
+                    <textarea class="form-control rounded-4" rows="4"
+                        placeholder="Enter product description"></textarea>
+                </div>
+
+                <!-- Image Upload -->
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">Upload Image</label>
+                    <input type="file" class="form-control rounded-pill" accept="image/*" />
+                </div>
+
+                <!-- Preview -->
+                <div class="col-md-6 text-center">
+                    <label class="form-label fw-semibold d-block">Preview</label>
+                    <div class="border rounded-4 p-3 bg-light d-flex align-items-center justify-content-center"
+                        style="height: 180px;">
+                        <i class="fa-solid fa-image text-muted fs-1"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <button type="button" class="btn btn-success rounded-pill px-4 me-2">
+                    <i class="fa-solid fa-plus"></i> Add Product
+                </button>
+                <button type="reset" class="btn btn-outline-secondary rounded-pill px-4">
+                    <i class="fa-solid fa-rotate-left"></i> Reset
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,57 @@
+@if(employee){
+<h1>{{title + employee.employeeName}}</h1>
+<!-- <h4>{{subTitle}}</h4> -->
+
+<table class="table table-hover table-striped">
+    <tbody>
+        <tr>
+            <th>Employee Id</th>
+            <td><span>{{employee.employeeId}}</span></td>
+        </tr>
+        <tr>
+            <th>Employee Name</th>
+            <td><span>{{employee.employeeName}}</span></td>
+        </tr>
+        <tr>
+            <th>Employee Address</th>
+            <td><span>{{employee.address}}</span></td>
+        </tr>
+        <tr>
+            <th>Employee Email</th>
+            <td><span>{{employee.email}}</span></td>
+        </tr>
+        <tr>
+            <th>Employee City</th>
+            <td><span>{{employee.city}}</span></td>
+        </tr>
+        <tr>
+            <th>Employee Zipcode</th>
+            <td><span>{{employee.zipcode}}</span></td>
+        </tr>
+        <tr>
+            <th>Employee Joining Date</th>
+            <td><span>{{employee.joiningDate}}</span></td>
+        </tr>
+        <tr>
+            <th>Employee Phone</th>
+            <td><span>{{employee.phone}}</span></td>
+        </tr>
+        <tr>
+            <th>Employee SkillSet</th>
+            <td><span>{{employee.skillSets}}</span></td>
+        </tr>
+        <tr>
+            <th>Employee Profile</th>
+            <td><img [src]="employee.avatar" [alt]="employee.employeeName"></td>
+        </tr>
+    </tbody>
+</table>
+
+<hr>
+<!-- <button class="btn btn-success" (click)="onProcess()">Send Message To Parent</button> -->
+
+
+}@else {
+<h4>We did not find employee which you are looking for !</h4>
+
+}

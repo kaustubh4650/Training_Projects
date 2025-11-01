@@ -1,0 +1,146 @@
+<div class="container">
+    <h1>{{ title }}</h1>
+    <hr>
+    <form [formGroup]="register.employeeForm" #employeeForm="ngForm" (ngSubmit)="onEmployeeSubmit()">
+        <fieldset>
+            <div class="form-group">
+                <label for="inputEmployeeId" class="form-label mt-4">Employee ID</label>
+                <input type="number" class="form-control" id="inputEmployeeId" placeholder="Enter employee ID"
+                    formControlName="employeeId">
+                @if(register.employeeForm.controls['employeeId'].invalid
+                && (register.employeeForm.controls['employeeId'].touched
+                || register.employeeForm.controls['employeeId'].dirty)) {
+                @if(register.employeeForm.controls['employeeId'].errors?.['required']){
+                <div class="alert alert-danger">
+                    Employee Id is a required field!
+                </div>
+                }
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="inputEmployeeName" class="form-label mt-4">Employee Name</label>
+                <input type="text" class="form-control" id="inputEmployeeName" placeholder="Enter employee name"
+                    formControlName="employeeName">
+
+                @if(register.employeeForm.controls['employeeName'].invalid
+                && (register.employeeForm.controls['employeeName'].touched
+                || register.employeeForm.controls['employeeName'].dirty)) {
+                @if(register.employeeForm.controls['employeeName'].errors?.['required']){
+                <div class="alert alert-danger">
+                    Employee Name is a required field!
+                </div>
+                }@else if(register.employeeForm.controls['employeeName'].errors?.['noSpace']){
+                <div class="alert alert-danger">
+                    Enter Name without any space at start and end!
+                </div>
+                }
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="inputAddress" class="form-label mt-4">Address</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Enter address"
+                    formControlName="address">
+            </div>
+
+            <div class="form-group">
+                <label for="inputCity" class="form-label mt-4">City</label>
+                <input type="text" class="form-control" id="inputCity" placeholder="Enter city" formControlName="city">
+            </div>
+
+            <div class="form-group">
+                <label for="inputZipcode" class="form-label mt-4">Zip Code</label>
+                <input type="number" class="form-control" id="inputZipcode" placeholder="Enter zip code"
+                    formControlName="zipcode">
+
+                @if(register.employeeForm.controls['zipcode'].invalid
+                && (register.employeeForm.controls['zipcode'].touched
+                || register.employeeForm.controls['zipcode'].dirty)) {
+                @if(register.employeeForm.controls['zipcode'].errors?.['required']){
+                <div class="alert alert-danger">
+                    Zipcode is a required field!
+                </div>
+                }@else if(register.employeeForm.controls['zipcode'].errors?.['pattern']){
+                <div class="alert alert-danger">
+                    Zipcode must be 6 digits!
+                </div>
+                }
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="inputPhone" class="form-label mt-4">Phone</label>
+                <input type="text" class="form-control" id="inputPhone" placeholder="Enter phone number"
+                    formControlName="phone">
+                @if(register.employeeForm.controls['phone'].invalid
+                && (register.employeeForm.controls['phone'].touched
+                || register.employeeForm.controls['phone'].dirty)) {
+                @if(register.employeeForm.controls['phone'].errors?.['required']){
+                <div class="alert alert-danger">
+                    Phone number is a required field!
+                </div>
+                }@else if(register.employeeForm.controls['phone'].errors?.['pattern']){
+                <div class="alert alert-danger">
+                    Phone number must be 10 digits!
+                </div>
+                }
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="inputEmail" class="form-label mt-4">Email</label>
+                <input type="email" class="form-control" id="inputEmail" placeholder="Enter email address"
+                    formControlName="email">
+                @if(register.employeeForm.controls['email'].invalid
+                && (register.employeeForm.controls['email'].touched
+                || register.employeeForm.controls['email'].dirty)) {
+                @if(register.employeeForm.controls['email'].errors?.['required']){
+                <div class="alert alert-danger">
+                    Email is a required field!
+                </div>
+                }@else if(register.employeeForm.controls['email'].errors?.['email']){
+                <div class="alert alert-danger">
+                    Email must be in email format!
+                </div>
+                }
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="inputSkillSets" class="form-label mt-4">Skill Sets</label>
+                <input type="text" class="form-control" id="inputSkillSets"
+                    placeholder="Enter skill sets (comma separated)" formControlName="skillSets">
+            </div>
+
+            <div class="form-group">
+                <label for="inputCountry" class="form-label mt-4">Country</label>
+                <input type="text" class="form-control" id="inputCountry" placeholder="Enter country"
+                    formControlName="country">
+            </div>
+
+            <div class="form-group">
+                <label for="inputJoiningDate" class="form-label mt-4">Joining Date</label>
+                <input type="date" class="form-control" id="inputJoiningDate" placeholder="Select joining date"
+                    formControlName="joiningDate">
+                @if(register.employeeForm.controls['joiningDate'].invalid
+                && (register.employeeForm.controls['joiningDate'].touched
+                || register.employeeForm.controls['joiningDate'].dirty)) {
+                @if(register.employeeForm.controls['joiningDate'].errors?.['required']){
+                <div class="alert alert-danger">
+                    Joining Date is a required field!
+                </div>
+                }
+                }
+            </div>
+
+            <!-- <div class="form-group">
+                <label for="inputAvatar" class="form-label mt-4">Avatar URL</label>
+                <input type="text" class="form-control" id="inputAvatar" placeholder="Enter avatar image URL"
+                    formControlName="avatar">
+            </div> -->
+
+            <button type="submit" class="btn btn-dark mt-3" [disabled]="!employeeForm.valid">Register Employee</button>
+        </fieldset>
+    </form>
+</div>

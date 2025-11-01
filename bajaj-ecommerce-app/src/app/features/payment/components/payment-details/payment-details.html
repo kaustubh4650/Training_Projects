@@ -1,0 +1,16 @@
+<div class="payment-container">
+    <h2>Payment Page</h2>
+    <p>Please confirm your payment to complete the order.</p>
+
+    <div class="buttons">
+        <button class="btn success" (click)="onSuccess()">Payment Success</button>
+        <button class="btn failed" (click)="onFailed()">Payment Failed</button>
+    </div>
+
+    @if(paymentFailed){
+    <div class="error-message">
+        ❌ Payment Failed. Please try again.
+    </div>
+    }
+
+</div>

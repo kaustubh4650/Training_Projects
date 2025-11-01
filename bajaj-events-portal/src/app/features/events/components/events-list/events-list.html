@@ -1,0 +1,65 @@
+@if(events && events.length > 0){
+
+<h1>{{ title }}</h1>
+<hr />
+<h6>{{ subTitle }}</h6>
+
+@if(childMessage){
+<p>{{childMessage}}</p>
+}
+
+<div class="row g-3 ">
+    <div class="col-6">
+        <input type="search" id="inputSearch" class="form-control" aria-describedby="searchHelpInline"
+            placeholder="Search Events By Event Name!" [(ngModel)]="searchChars" (input)="searchEvents()">
+    </div>
+</div>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            @for (col of columns;track $index) {
+            @if(role === "Hr"){
+            <th>{{ col }}</th>
+            }
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @for (event of filteredEvents | paginate:{itemsPerPage:pageSize,currentPage:pageNumber}; track $index) {
+        <tr>
+            <td>{{ event.eventCode | lowercaseTrunc}}</td>
+            <td>{{ event.eventName | uppercase}}</td>
+            <td>{{ event.startDate.toString()| dateGlobalization:'mr-IN'}}</td>
+            <td>{{ event.fees|currency}}</td>
+            <!-- <td><button class="btn btn-dark" (click)="onEventSelection(event.eventId)">Show Details</button></td> -->
+            <td><a class="btn btn-dark" [routerLink]="['/events',event.eventId]">Show Details</a></td>
+
+            @if(role==="Hr"){
+            <td><a class="btn btn-danger" [routerLink]="['/events',event.eventId]">Cancel Event</a></td>
+            }
+
+        </tr>
+        }
+    </tbody>
+</table>
+
+<div class="container text-center">
+    <pagination-controls class="my-pagination" (pageChange)="pageNumber=$event"></pagination-controls>
+</div>
+
+<!-- @if (selectedEventId>0) {
+
+@defer () {
+<app-event-details [eventId]="selectedEventId" subTitle="hello world"
+    (sendConfirmationMessage)="handleChildMessage($event)"></app-event-details>
+} @placeholder(minimum 3000ms) {
+<h4>Please Wait!!!</h4>
+} @error {
+<h4>Something went wrong !</h4>
+}
+} -->
+
+} @else {
+<h4>Sorry! we did not find any event! Please try after sometime !</h4>
+}

@@ -1,0 +1,79 @@
+<main class="main-content">
+
+    <section class="cards">
+
+        @if(isLoading){
+        <div class="loading">
+            Loading products...
+        </div>
+        }
+
+        @for (product of products;; track $index) {
+        <div class="card" (click)="goToDetails(product._id)">
+            <div class="card-image">
+                <img [src]="product.images[0]" [alt]="product.name">
+
+                @if(product.discount){
+                <span class="badge">-{{product.discount}}%</span>
+                }
+            </div>
+
+            <!-- Product Info -->
+            <div class="card-body">
+                <h3 class="card-title">{{ product.name }}</h3>
+
+                <div class="meta">
+                    <span class="brand">{{ product.brand }}</span>
+                    <span class="category">{{ product.categoryId.name }}</span>
+                </div>
+
+                <!-- Price -->
+                <div class="price">
+                    <span class="current-price"><i class="bi bi-currency-rupee"></i>{{ product.price - (product.price *
+                        product.discount / 100) |
+                        number:'1.2-2' }}</span>
+
+                    @if(product.discount){
+                    <span class="old-price"><i class="bi bi-currency-rupee"></i>{{
+                        product.price | number:'1.2-2' }}</span>
+                    }
+                </div>
+
+                <!-- Rating -->
+                <div class="rating">
+
+                    @for(star of [].constructor(5);track $index){
+                    <span>
+                        <i class="fa" [ngClass]="$index < product.rating ? 'fa-star checked' : 'fa-star'"></i>
+                    </span>
+                    }
+                    <span class="reviews">({{ product.numReviews }} reviews)</span>
+                </div>
+                <button class="btn-add" (click)="addToCart(product); $event.stopPropagation()">Add to Cart</button>
+            </div>
+
+        </div>
+        }
+
+    </section>
+
+    @if(totalPages > 1){
+    <div class="pagination-container">
+        <button class="btn-page" [disabled]="pageNumber === 1" (click)="onPageChange(pageNumber - 1)">
+            &laquo; Prev
+        </button>
+
+        @for(p of getPageNumbers();track $index){
+        <button class="btn-page" [class.active]="p === pageNumber" (click)="onPageChange(p)">
+            {{ p }}
+        </button>
+        }
+
+        <button class="btn-page" [disabled]="pageNumber === totalPages" (click)="onPageChange(pageNumber + 1)">
+            Next &raquo;
+        </button>
+    </div>
+    }
+
+
+</main>

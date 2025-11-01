@@ -1,0 +1,39 @@
+<!-- Sidebar -->
+<aside class="sidebar" #sidebar>
+    <div class="toggle-btn" (click)="toggleSidebar()">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <ul class="menu">
+        <li class="mt-5" (click)="goToCategory('Electronics')">
+            <i class="fa-solid fa-mobile"></i><span>Electronics</span>
+        </li>
+        <li (click)="goToCategory('Fashion')">
+            <i class="fa-solid fa-shirt"></i><span>Fashion</span>
+        </li>
+        <li (click)="goToCategory('Home & Kitchen')">
+            <i class="fa-solid fa-kitchen-set"></i><span>Home & Kitchen</span>
+        </li>
+        <li (click)="goToCategory('Sports & Fitness')">
+            <i class="fa-solid fa-volleyball"></i><span>Sport & Fitness</span>
+        </li>
+        <li (click)="goToCategory('Beauty & Health')">
+            <i class="fa-solid fa-stethoscope"></i><span>Beauty & Health</span>
+        </li>
+        <li (click)="goToCategory('Books & Stationary')">
+            <i class="fa-solid fa-book"></i><span>Books & Stationary</span>
+        </li>
+        <li (click)="goToCategory('Toys & Baby')">
+            <i class="fa-solid fa-gamepad"></i><span>Toys & Baby</span>
+        </li>
+        <li (click)="goToCategory('Groceries')">
+            <i class="fa-solid fa-carrot"></i><span>Groceries</span>
+        </li>
+        <li (click)="goToCategory('Automotive')">
+            <i class="fa-solid fa-car"></i><span>Automotive</span>
+        </li>
+        <li (click)="goToCategory('Jewellery')">
+            <i class="fa-solid fa-gem"></i><span>Jewellery</span>
+        </li>
+    </ul>
+
+</aside>

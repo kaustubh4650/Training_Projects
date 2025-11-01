@@ -1,0 +1,18 @@
+/* table {
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+button i {
+  pointer-events: none;
+} */
+
+.card {
+  border-radius: 12px;
+}
+
+img.rounded {
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+

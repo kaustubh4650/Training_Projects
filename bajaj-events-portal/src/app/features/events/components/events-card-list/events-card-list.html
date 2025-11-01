@@ -1,0 +1,16 @@
+@for (event of events; track $index) {
+<div class="event-card" appEventCard [event]="event">
+    <div class="event-header">
+        <div class="event-badge" appEventBadge [event]="event"></div>
+        <div class="event-countdown" appEventCountdown [event]="event"></div>
+    </div>
+    <div class="event-body">
+        <img [src]="event.logo" alt="{{ event.eventName }}" class="event-logo">
+        <h3>{{ event.eventName }}</h3>
+        <p>{{ event.description }}</p>
+        <p><strong>Dates:</strong> {{ event.startDate | date:'shortDate' }} - {{ event.endDate | date:'shortDate' }}</p>
+        <p><strong>Fees:</strong> ₹{{ event.fees }}</p>
+        <p><strong>Seats Filled:</strong> {{ event.seatsFilled }}</p>
+    </div>
+</div>
+}
